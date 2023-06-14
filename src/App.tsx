@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom"
+import Navigation from "./components/ui/Navigation/Navigation"
+import RequestsContainer from "./components/ui/RequestsContainer/RequestsContainer"
+import Home from "./components/pages/Home/Home"
+import Get from "./components/pages/Get/Get"
+import Post from "./components/pages/Post/Post"
+import Delete from "./components/pages/Delete/Delete"
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ margin: '0 auto', width: '300px' }}>
+      <Navigation />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/get" element={<Get />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/delete" element={<Delete />} />
+      </Routes>
+
+      <RequestsContainer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
